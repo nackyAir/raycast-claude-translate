@@ -16,7 +16,9 @@ Built to translate prompts written in Japanese into English for AI assistants. T
 
 ## Install
 
-This extension is not on the Raycast Store yet. You'll need macOS, Raycast, Node.js with npm, and an Anthropic API key.
+Install from the [Raycast Store](https://www.raycast.com/nacky/claude-translate), then open Raycast Settings → Extensions → Claude Translate and enter your Anthropic API key.
+
+To run from source instead, you'll need macOS, Raycast, Node.js with npm, and an Anthropic API key:
 
 ```bash
 git clone https://github.com/nackyAir/raycast-claude-translate.git
@@ -24,8 +26,6 @@ cd raycast-claude-translate
 npm install
 npm run dev
 ```
-
-Run `npm run dev` once to register the extension in Raycast; after registration, you can stop it with Ctrl+C. Open Raycast Settings → Extensions → Claude Translate to configure Preferences.
 
 ## Preferences
 
