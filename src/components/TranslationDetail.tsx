@@ -1,6 +1,7 @@
 import { Action, ActionPanel, Detail, Icon, Keyboard } from "@raycast/api";
 import type { TargetLanguage } from "../lib/languages";
 import type { ClaudeModel } from "../lib/preferences";
+import { escapeMarkdownHtml } from "../utils/markdown";
 
 interface TranslationDetailProps {
   translation: string;
@@ -20,7 +21,7 @@ export function TranslationDetail({
   return (
     <Detail
       navigationTitle="Translation"
-      markdown={translation}
+      markdown={escapeMarkdownHtml(translation)}
       metadata={
         <Detail.Metadata>
           <Detail.Metadata.Label title="Target Language" text={targetLanguage} />
