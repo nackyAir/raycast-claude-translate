@@ -20,14 +20,14 @@ export class TranslateError extends Error {
 }
 
 const errorMessages: Record<TranslateError["kind"], string> = {
-  "empty-input": "翻訳するテキストを入力してください。",
-  "missing-api-key": "API キーが未設定です。Preferences で設定してください。",
-  auth: "API キーが無効です。Preferences を確認してください。",
-  "rate-limit": "利用制限に達しました。少し待ってから再試行してください。",
-  refusal: "このテキストは翻訳できませんでした。",
-  network: "API に接続できません。ネットワークを確認してください。",
-  api: "翻訳 API でエラーが発生しました。",
-  "empty-output": "翻訳結果が空でした。もう一度お試しください。",
+  "empty-input": "Enter some text to translate.",
+  "missing-api-key": "API key is not set. Add it in Preferences.",
+  auth: "API key is invalid. Check Preferences.",
+  "rate-limit": "Rate limit reached. Try again in a moment.",
+  refusal: "This text could not be translated.",
+  network: "Could not reach the API. Check your connection.",
+  api: "The translation API returned an error.",
+  "empty-output": "The translation came back empty. Try again.",
 };
 
 export async function translateText(request: TranslateRequest): Promise<string> {
@@ -95,7 +95,7 @@ The input is usually a prompt or instruction the user will give to an AI assista
       throw new TranslateError("network");
     }
     if (error instanceof Anthropic.APIError) {
-      throw new TranslateError("api", `翻訳 API エラー (${error.status ?? "不明"}): ${error.message}`);
+      throw new TranslateError("api", `Translation API error (${error.status ?? "unknown"}): ${error.message}`);
     }
     throw new TranslateError("api");
   }

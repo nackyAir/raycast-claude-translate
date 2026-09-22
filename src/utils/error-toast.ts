@@ -10,7 +10,7 @@ export async function showTranslateErrorToast(error: unknown): Promise<void> {
 
   await showToast({
     style: Toast.Style.Failure,
-    title: "翻訳に失敗",
+    title: "Translation Failed",
     message,
     primaryAction: needsPreferences(error)
       ? {

@@ -1,21 +1,55 @@
-# Claude Translate (Raycast)
+# Claude Translate
 
-Claude API でテキストを翻訳するローカル用 Raycast Extension。
+Translate text and AI prompts in Raycast using the Claude API.
 
-## Setup
+## Features
+
+- **Translate**: enter multi-line text and choose a target language for each translation.
+- **Translate Clipboard**: translate clipboard text and replace it with the result.
+- Choose Claude Opus 5, Sonnet 5, or Haiku 4.5.
+- Translate into English, Japanese, Chinese (Simplified), Korean, Spanish, French, or German.
+- Prompt-oriented translation preserves Markdown, code, file paths, URLs, and placeholders.
+
+## Why
+
+Built to translate prompts written in Japanese into English for AI assistants. The translation instructions preserve the imperative tone and tell Claude to translate only, never answer or execute the prompt.
+
+## Install
+
+This extension is not on the Raycast Store yet. You'll need macOS, Raycast, Node.js with npm, and an Anthropic API key.
 
 ```bash
+git clone https://github.com/nackyAir/raycast-claude-translate.git
+cd raycast-claude-translate
 npm install
-npm run dev   # 初回のみ。Raycast に Extension が登録される（Ctrl+C で止めて OK）
+npm run dev
 ```
 
-Raycast の Extension 設定（`⌘ ,` → Extensions → Claude Translate）で以下を設定:
+Run `npm run dev` once to register the extension in Raycast; after registration, you can stop it with Ctrl+C. Open Raycast Settings → Extensions → Claude Translate to configure Preferences.
 
-- Anthropic API Key（必須）
-- Model: Claude Opus 5 / Sonnet 5 / Haiku 4.5（デフォルト Opus 5）
-- Target Language（デフォルト English）
+## Preferences
 
-## Commands
+| Preference | Description | Default |
+| --- | --- | --- |
+| Anthropic API Key | Required API key from console.anthropic.com | None |
+| Model | Claude Opus 5, Sonnet 5, or Haiku 4.5 | Claude Opus 5 |
+| Target Language | Default target for Translate and the language used by Translate Clipboard | English |
 
-- `Translate`: テキストを入力 → 翻訳結果を表示。コピー / 前面アプリに貼り付け / もう一度（⌘R）
-- `Translate Clipboard`: クリップボードの内容を翻訳してクリップボードに上書き
+Text submitted for translation is sent to the Anthropic API using your key.
+
+## Usage
+
+- **Translate**: open the command, enter text, select a target language, and submit. Copy the result, paste it into the active app, or translate again with ⌘R.
+- **Translate Clipboard**: copy text, then run the command. The translated text replaces your clipboard contents.
+
+## Development
+
+```bash
+npm run dev    # Run in Raycast with live updates
+npm run build  # Build the extension
+npm run lint   # Check the extension
+```
+
+## License
+
+[MIT](LICENSE) © 2026 nacky.

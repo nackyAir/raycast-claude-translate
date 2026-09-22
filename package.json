@@ -101,16 +101,16 @@
     "fix-lint": "ray lint --fix"
   },
   "dependencies": {
-    "@raycast/api": "latest",
-    "@raycast/utils": "latest",
-    "@anthropic-ai/sdk": "latest"
+    "@raycast/api": "^2.4.1",
+    "@raycast/utils": "^2.3.1",
+    "@anthropic-ai/sdk": "^0.127.0"
   },
   "devDependencies": {
-    "@raycast/eslint-config": "latest",
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "eslint": "latest",
-    "prettier": "latest",
-    "typescript": "latest"
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "eslint": "^10.11.0",
+    "prettier": "^3.9.8",
+    "typescript": "^6.0.3"
   }
 }

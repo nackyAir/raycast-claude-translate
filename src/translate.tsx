@@ -18,14 +18,14 @@ export default function Command() {
   const { handleSubmit, itemProps } = useForm<TranslateFormValues>({
     initialValues: { text: "", targetLanguage: preferences.targetLanguage },
     validation: {
-      text: (value) => (value && value.trim() ? undefined : "テキストを入力してね"),
+      text: (value) => (value && value.trim() ? undefined : "Enter some text"),
     },
     async onSubmit(values) {
       const targetLanguage: TargetLanguage = isTargetLanguage(values.targetLanguage)
         ? values.targetLanguage
         : preferences.targetLanguage;
 
-      const toast = await showToast({ style: Toast.Style.Animated, title: "翻訳中..." });
+      const toast = await showToast({ style: Toast.Style.Animated, title: "Translating…" });
 
       try {
         const translation = await translateText({ text: values.text, targetLanguage });
@@ -57,7 +57,7 @@ export default function Command() {
       <Form.TextArea
         {...itemProps.text}
         title="Text"
-        placeholder="翻訳したいテキストを入力（複数行 OK）"
+        placeholder="Enter text to translate (multi-line supported)"
         autoFocus
         enableMarkdown={false}
       />

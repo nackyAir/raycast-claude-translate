@@ -7,18 +7,18 @@ export default async function Command() {
   const clipboardText = await Clipboard.readText();
 
   if (!clipboardText || !clipboardText.trim()) {
-    await showHUD("クリップボードが空だよ");
+    await showHUD("Clipboard is empty");
     return;
   }
 
   const { targetLanguage } = getTranslatePreferences();
-  const toast = await showToast({ style: Toast.Style.Animated, title: "翻訳中..." });
+  const toast = await showToast({ style: Toast.Style.Animated, title: "Translating…" });
 
   try {
     const translation = await translateText({ text: clipboardText, targetLanguage });
     await Clipboard.copy(translation);
     await toast.hide();
-    await showHUD("翻訳をコピーしたよ");
+    await showHUD("Translation copied to clipboard");
   } catch (error) {
     await toast.hide();
     await showTranslateErrorToast(error);
